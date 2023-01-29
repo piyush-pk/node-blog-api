@@ -27,15 +27,23 @@ dotenv.config();
 const port = process.env.PORT || 8080;
 
 // DB connection
-mongoose.connect("mongodb://127.0.0.1:27017/Blog").then(() => {
-  console.log("DB CONNECTED 🔥👍👍🤞");
+// mongoose.connect("mongodb://127.0.0.1:27017/Blog").then(() => {
+//   console.log("DB CONNECTED 🔥👍👍🤞");
+// });
+mongoose.connect(`mongodb+srv://pk1202:Piyush%401202@cluster0.eqa19cv.mongodb.net/Blog`).then(() => {
+  console.log("DB CONNECTED 🔥👍👍🤞, This is a sample DB.");
 });
 
 // middleware
+
+app.use((req, res, next) => {
+  console.log(req.headers);
+  next();
+})
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors({credentials: true, origin: 'http://localhost:4200'}));
+app.use(cors({credentials: true, origin: ['http://127.0.0.1:5500', 'http://localhost:4200']}));
 app.use(upload.any());
 
 // routers
