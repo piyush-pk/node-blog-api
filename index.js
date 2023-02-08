@@ -34,7 +34,7 @@ mongoose.connect(`mongodb+srv://pk1202:Piyush%401202@cluster0.eqa19cv.mongodb.ne
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors({credentials: true, origin: ['http://127.0.0.1:5500', 'http://localhost:4200', "https://angular-blog-pk.web.app/"]}));
+app.use(cors({credentials: true, origin: ['http://127.0.0.1:5500', 'http://localhost:4200', "https://angular-blog-pk.web.app"]}));
 app.use(upload.any());
 
 // routers
