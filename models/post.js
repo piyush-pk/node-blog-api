@@ -2,6 +2,9 @@ import mongoose from "mongoose";
 
 const postScheme = new mongoose.Schema(
   {
+    thumbnail:{
+      type: String
+    },
     title: {
       type: String,
       required: true,

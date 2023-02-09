@@ -10,17 +10,19 @@ export const createPost = async (req, res) => {
   if (isEmpty(req.body)) {
     res.json({ warning: "Please enter full details." });
   }
-  let images = [];
-  if(req.files) {
-    req.files.forEach((file) => {
-      images.push(file.path);
-    });
-  }
-  const { title, description } = req.body;
+  console.log(req.files);
+  // let thumbnail;
+  // if(req.files) {
+  //   req.files.forEach((file) => {
+  //     thumbnail = file.path
+  //     console.log(file)
+  //   });
+  // }
+  const { title, description, thumbnail } = req.body;
   const newPost = new Post({
     title,
     description,
-    images,
+    thumbnail,
     user: req.user.id,
   });
   const result = await newPost.save();
